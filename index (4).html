@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strand Rayan - Hotel & Restaurant</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap');
+
+        :root {
+            --primary-color: #0d1a26;
+            --secondary-color: #A34343;
+            --accent-color: #ff9800;
+            --text-light: #f5f5f5;
+            --text-dark: #1f1f1f;
+            --background-dark: #0A0A0A;
+            --background-light: #f4f7f9;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--background-light);
+            scroll-behavior: smooth;
+        }
+
+        /* --- Header & Navigation --- */
+        header {
+            background: var(--primary-color);
+            color: var(--text-light);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
+            color: var(--text-light);
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 2rem;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .whatsapp-hero-button {
+            display: inline-flex;
+            align-items: center;
+            background-color: #25D366;
+            color: white;
+            padding: 1.2rem 3rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .whatsapp-hero-button i {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+        }
+        .whatsapp-hero-button:hover {
+            background-color: #128C7E;
+            transform: scale(1.05);
+        }
+
+        /* --- Main Content Sections --- */
+        .container {
+            max-width: 1200px;
+            margin: 5rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-heading {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 2rem;
+        }
+
+        .card-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .card-content p {
+            font-size: 1rem;
+            color: var(--text-dark);
+        }
+
+        /* --- Gallery Section --- */
+        .gallery {
+            max-width: 1200px;
+            margin: 5rem auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .gallery-container {
+            display: flex;
+            overflow-x: scroll;
+            scroll-behavior: smooth;
+            gap: 1.5rem;
+            padding-bottom: 1.5rem;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .gallery-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .gallery-item {
+            min-width: 350px;
+            height: 250px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item img:hover {
+            transform: scale(1.1);
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            color: var(--text-light);
+            font-size: 1.5rem;
+            margin: 0 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* --- WhatsApp Floating Button --- */
+        .whatsapp-float {
+            position: fixed;
+            width: 70px;
+            height: 70px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25D366;
+            color: #FFF;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 35px;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+            z-index: 1001;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background-color: #128C7E;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+            .hero p {
+                font-size: 1.2rem;
+            }
+            .section-heading {
+                font-size: 2.5rem;
+            }
+            .whatsapp-float {
+                bottom: 20px;
+                right: 20px;
+                width: 60px;
+                height: 60px;
+                font-size: 30px;
+            }
+        }
+    </style>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">Strand Rayan</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#rooms">Rooms</a></li>
+                <li><a href="#bar">Bar</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <h1>Strand Rayan</h1>
+            <p>Where luxury and exceptional experiences meet. The new trend in Etawah.</p>
+            <a href="https://wa.me/8279608163?text=Hello%2C%20I%20am%20interested%20in%20a%20booking.%20Please%20provide%20me%20with%20more%20details." class="whatsapp-hero-button">
+                <i class="fa-brands fa-whatsapp"></i> Book on WhatsApp
+            </a>
+        </section>
+
+        <section class="container" id="rooms">
+            <h2 class="section-heading">Our Rooms</h2>
+            <p style="text-align: center; margin-bottom: 2rem;">Experience the perfect blend of style and comfort. Stay in our rooms with great amenities.</p>
+            <div class="grid">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1618773959110-246d6b8ac6d2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Luxury Room Interior 1" class="card-image">
+                    <div class="card-content">
+                        <h3>Luxury Suite</h3>
+                        <p>Enjoy our spacious luxury suites with modern amenities and a beautiful view.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1582467459573-6f577cd4975a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Luxury Room Interior 2" class="card-image">
+                    <div class="card-content">
+                        <h3>Luxury Suite Details</h3>
+                        <p>Experience premium comfort with king-size beds and elegant decor.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1596436889140-5a025642a865?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Deluxe Room Interior 1" class="card-image">
+                    <div class="card-content">
+                        <h3>Deluxe Room</h3>
+                        <p>Our deluxe rooms offer a perfect blend of comfort and elegance for a relaxing stay.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1566073771259-d36873532c6e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Deluxe Room Interior 2" class="card-image">
+                    <div class="card-content">
+                        <h3>Deluxe Room View</h3>
+                        <p>Enjoy city views and comfortable seating areas in our deluxe rooms.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1582719478252-6ce95689037c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Standard Room Interior 1" class="card-image">
+                    <div class="card-content">
+                        <h3>Standard Room</h3>
+                        <p>Cozy and comfortable, our standard rooms provide everything you need for a pleasant night.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1616588589676-62300e5c374b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Standard Room Interior 2" class="card-image">
+                    <div class="card-content">
+                        <h3>Standard Room Amenities</h3>
+                        <p>Functional and well-appointed, perfect for a comfortable stay.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container" id="bar">
+            <h2 class="section-heading">Our Bar & Restaurant</h2>
+            <p style="text-align: center; margin-bottom: 2rem;">Enjoy delicious food and a wide selection of drinks in a vibrant and trendy atmosphere.</p>
+            <div class="grid">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1617711467554-15f10668f44d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Bar Interior 1" class="card-image">
+                    <div class="card-content">
+                        <h3>Bar Area</h3>
+                        <p>Relax at our stylish bar and enjoy expertly crafted cocktails and fine spirits.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1534430662200-3678620a9733?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Bar Counter" class="card-image">
+                    <div class="card-content">
+                        <h3>Bar Counter</h3>
+                        <p>Watch our skilled bartenders create your favorite drinks.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1550541768-450f61d02c5f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Restaurant Interior 1" class="card-image">
+                    <div class="card-content">
+                        <h3>Restaurant Dining Hall</h3>
+                        <p>Dine with family and friends in our elegant restaurant with a diverse menu.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1470167049808-99086fa5b835?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Restaurant Table Setting" class="card-image">
+                    <div class="card-content">
+                        <h3>Elegant Table Setting</h3>
+                        <p>Enjoy a fine dining experience with our carefully arranged table settings.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1555543788-b22301c40b8a?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Outdoor Seating 1" class="card-image">
+                    <div class="card-content">
+                        <h3>Outdoor Seating</h3>
+                        <p>Enjoy the weather and our outdoor ambiance for a perfect dining experience.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1604288988676-49547899fa6f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Outdoor Bar Area" class="card-image">
+                    <div class="card-content">
+                        <h3>Outdoor Bar</h3>
+                        <p>Sip your drinks in our relaxed outdoor bar setting.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="gallery" id="gallery">
+            <h2 class="section-heading">Photo Gallery</h2>
+            <div class="gallery-container">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1582719478252-6ce95689037c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Gallery Image 1">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1549488344-9f4a0a194ed8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Gallery Image 2">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1566073771259-d36873532c6e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Gallery Image 3">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1543884399-5285311f44e1?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Gallery Image 4">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1517840134446-c73400569768?q=80&w=1958&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Gallery Image 5">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1560448204-e02f11277688?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Gallery Image 6">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1625220194771-7df7c6b5b814?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Gallery Image 7">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Gallery Image 8">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <a href="https://wa.me/8279608163?text=Hello%2C%20I%20am%20interested%20in%20a%20booking.%20Please%20provide%20me%20with%20more%20details." class="whatsapp-float">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <footer>
+        <div class="footer-content">
+            <div class="logo">Strand Rayan</div>
+            <p>Vijaynagar Road, Friends Colony, Near Indian Bank, Etawah, Uttar Pradesh</p>
+            <p>Monday - Sunday: 10 AM to 11 PM</p>
+            <p>Phone: +91 8279608163 | Email: info@strandrayan.com</p>
+            <div class="social-links">
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            </div>
+        </div>
+        <p style="margin-top: 1rem;">&copy; 2025 Strand Rayan. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
