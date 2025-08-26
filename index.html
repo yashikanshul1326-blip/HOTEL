@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Strand Rayan - Premium Hotel & Bar in Etawah</title>
+    <title>Strand Rayan - Best Hotel & Top Bar in Etawah</title>
+    
+    <meta name="description" content="Experience Strand Rayan, the best hotel in Etawah. Enjoy our luxury rooms, fine dining, and the top bar in Etawah for an unforgettable stay.">
+    <meta name="keywords" content="best hotel in etawah, top bar in etawah, best bar in etawah, luxury hotel etawah, strand rayan, hotel booking etawah">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -134,7 +137,8 @@
 
         /* --- Hero Section --- */
         .hero {
-            background: linear-gradient(rgba(26, 42, 68, 0.7), rgba(26, 42, 68, 0.7)), url('https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=1974&auto=format&fit=crop') no-repeat center center/cover;
+            /* NEW: Bar interior image */
+            background: linear-gradient(rgba(26, 42, 68, 0.7), rgba(26, 42, 68, 0.7)), url('https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=2274&auto=format&fit=crop') no-repeat center center/cover;
             height: 90vh;
             color: var(--text-light);
             display: flex;
@@ -192,6 +196,8 @@
             box-shadow: var(--box-shadow);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             text-align: left;
+            display: flex;
+            flex-direction: column;
         }
 
         .card:hover {
@@ -199,16 +205,66 @@
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
         }
 
-        .card-image {
+        /* --- Image Slider Styles --- */
+        .slider {
+            position: relative;
             width: 100%;
             height: 250px;
-            object-fit: cover;
+            overflow: hidden;
         }
 
+        .slider-track {
+            display: flex;
+            height: 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slider-track img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .slider-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(26, 42, 68, 0.6);
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            z-index: 10;
+            font-size: 1.5rem;
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .slider-button:hover {
+            background-color: var(--primary-color);
+        }
+
+        .slider-button.prev {
+            left: 10px;
+        }
+
+        .slider-button.next {
+            right: 10px;
+        }
+        
         .card-content {
             padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1; 
         }
-
+        
         .card-content h3 {
             font-family: 'Playfair Display', serif;
             font-size: 1.6rem;
@@ -224,11 +280,53 @@
         .card-content p {
             font-size: 1rem;
             color: #495057;
+            margin-bottom: 1.5rem;
         }
+        
+        .book-now-button {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            text-align: center;
+            margin-top: auto; 
+        }
+
+        .book-now-button:hover {
+            background-color: #34495e;
+            transform: translateY(-2px);
+        }
+
+        /* --- Gallery Section --- */
+        #gallery {
+            background-color: var(--text-light);
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+        .gallery-item img:hover {
+            transform: scale(1.05);
+            filter: brightness(1.1);
+        }
+
 
         /* --- UPI Payment Section --- */
         #payment {
-            background-color: var(--text-light);
+            background-color: var(--background-light);
         }
 
         .payment-container {
@@ -273,7 +371,6 @@
         .upi-button:hover {
             background-color: #34495e;
         }
-
 
         /* --- Footer --- */
         footer {
@@ -353,7 +450,7 @@
         @media (max-width: 768px) {
             .nav-links {
                 position: absolute;
-                top: 70px;
+                top: 70px; 
                 left: 0;
                 right: 0;
                 background-color: var(--text-light);
@@ -365,7 +462,7 @@
                 transition: max-height 0.5s ease-in-out;
             }
             .nav-links.active {
-                max-height: 300px; /* Adjust as needed */
+                max-height: 500px; 
                 padding: 1rem 0;
                 box-shadow: 0 10px 10px rgba(0,0,0,0.05);
             }
@@ -393,6 +490,7 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#rooms">Rooms</a></li>
                 <li><a href="#bar">Bar & Restaurant</a></li>
+                <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#payment">Payment</a></li>
             </ul>
             <div class="hamburger" id="hamburger">
@@ -403,8 +501,8 @@
 
     <main>
         <section class="hero" id="home">
-            <h1>Experience Etawah's Finest</h1>
-            <p>Welcome to Strand Rayan, where timeless elegance meets modern luxury. Your perfect getaway awaits.</p>
+            <h1>Etawah's Best Hotel & Bar Experience</h1>
+            <p>Welcome to Strand Rayan, your destination for luxury stays and the best bar in Etawah. Your perfect getaway awaits.</p>
             <a href="#rooms" class="hero-button">
                 <i class="fas fa-door-open"></i> Explore Our Rooms
             </a>
@@ -412,38 +510,71 @@
 
         <section class="container fade-in" id="rooms">
             <h2 class="section-heading">Our Exquisite Rooms</h2>
-            <p class="section-subheading">Designed for your comfort and pleasure. Each room is a perfect blend of style and substance, equipped with all modern amenities.</p>
+            <p class="section-subheading">Designed for your comfort and pleasure. Each room at the best hotel in Etawah is a perfect blend of style and substance.</p>
             <div class="grid">
                 <div class="card">
-                    <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?q=80&w=2070" alt="Luxury Suite" class="card-image">
+                    <div class="slider">
+                        <div class="slider-track">
+                            <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?q=80&w=2070&auto=format&fit=crop" alt="Luxury Suite bed at Strand Rayan hotel">
+                            <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=2070&auto=format&fit=crop" alt="Spacious Luxury Suite interior">
+                            <img src="https://images.unsplash.com/photo-1594904532938-1934938a1a35?q=80&w=2070&auto=format&fit=crop" alt="Elegant seating area in Luxury Suite">
+                            <img src="https://images.unsplash.com/photo-1583845112126-621b145d4a94?q=80&w=2070&auto=format&fit=crop" alt="Modern bathroom in Luxury Suite">
+                            <img src="https://images.unsplash.com/photo-1629079313271-9d269222c60c?q=80&w=1964&auto=format&fit=crop" alt="Luxury Suite bathroom details">
+                        </div>
+                        <button class="slider-button prev"><i class="fas fa-chevron-left"></i></button>
+                        <button class="slider-button next"><i class="fas fa-chevron-right"></i></button>
+                    </div>
                     <div class="card-content">
                         <h3>Luxury Suite</h3>
                         <p class="price">Starting from ₹2500 / night</p>
-                        <p>Our spacious luxury suites offer breathtaking views and premium amenities for an unforgettable stay.</p>
+                        <p>Our spacious luxury suites offer premium amenities for an unforgettable stay at Etawah's best hotel.</p>
+                        <a href="upi://pay?pa=8279608163@ptaxis&pn=Strand%20Rayan&cu=INR&am=2500" class="book-now-button">Book Now</a>
                     </div>
                 </div>
                 <div class="card">
-                    <img src="https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?q=80&w=2070" alt="Deluxe Room" class="card-image">
+                    <div class="slider">
+                        <div class="slider-track">
+                             <img src="https://images.unsplash.com/photo-1591088398332-8a77d19c3c13?q=80&w=1974&auto=format&fit=crop" alt="Deluxe Room interior view">
+                            <img src="https://images.unsplash.com/photo-1586798271654-0471bbd352c3?q=80&w=2070&auto=format&fit=crop" alt="Comfortable bed in Deluxe Room">
+                            <img src="https://images.unsplash.com/photo-1568495248636-6432b97bd949?q=80&w=1974&auto=format&fit=crop" alt="Work desk in Deluxe Room">
+                            <img src="https://images.unsplash.com/photo-1609949829285-3341a0073e51?q=80&w=1964&auto=format&fit=crop" alt="Clean bathroom in Deluxe Room">
+                            <img src="https://images.unsplash.com/photo-1622611799216-921373516812?q=80&w=2062&auto=format&fit=crop" alt="Deluxe Room bathroom sink and mirror">
+                        </div>
+                        <button class="slider-button prev"><i class="fas fa-chevron-left"></i></button>
+                        <button class="slider-button next"><i class="fas fa-chevron-right"></i></button>
+                    </div>
                     <div class="card-content">
                         <h3>Deluxe Room</h3>
                         <p class="price">Starting from ₹2000 / night</p>
                         <p>Elegance and comfort combined. Our deluxe rooms are perfect for both business and leisure travelers.</p>
+                         <a href="upi://pay?pa=8279608163@ptaxis&pn=Strand%20Rayan&cu=INR&am=2000" class="book-now-button">Book Now</a>
                     </div>
                 </div>
                 <div class="card">
-                    <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=2070" alt="Standard Room" class="card-image">
+                    <div class="slider">
+                        <div class="slider-track">
+                             <img src="https://images.unsplash.com/photo-1595576552222-d3bae06a3877?q=80&w=2070&auto=format&fit=crop" alt="Standard Room bed and layout">
+                            <img src="https://images.unsplash.com/photo-1616627561839-074385245ff6?q=80&w=1964&auto=format&fit=crop" alt="Cozy Standard Room interior">
+                            <img src="https://images.unsplash.com/photo-1554995207-c18c203602cb?q=80&w=2070&auto=format&fit=crop" alt="Compact and clean Standard Room">
+                            <img src="https://images.unsplash.com/photo-1579655938539-c10c14459586?q=80&w=1974&auto=format&fit=crop" alt="Standard Room modern bathroom">
+                            <img src="https://images.unsplash.com/photo-1590423793781-54e6da2f87a8?q=80&w=1974&auto=format&fit=crop" alt="Shower in Standard Room bathroom">
+                        </div>
+                        <button class="slider-button prev"><i class="fas fa-chevron-left"></i></button>
+                        <button class="slider-button next"><i class="fas fa-chevron-right"></i></button>
+                    </div>
                     <div class="card-content">
                         <h3>Standard Room</h3>
                         <p class="price">Starting from ₹1500 / night</p>
                         <p>Cozy, comfortable, and equipped with everything you need for a pleasant and relaxing stay.</p>
+                         <a href="upi://pay?pa=8279608163@ptaxis&pn=Strand%20Rayan&cu=INR&am=1500" class="book-now-button">Book Now</a>
                     </div>
                 </div>
             </div>
         </section>
 
         <section class="container fade-in" id="bar">
-            <h2 class="section-heading">The Bar & Restaurant</h2>
-            <p class="section-subheading">Indulge your senses with our exquisite culinary creations and a wide array of fine spirits in a vibrant and sophisticated atmosphere.</p>
+            <h2 class="section-heading">The Top Bar & Restaurant in Etawah</h2>
+            <p class="section-subheading">Indulge your senses with exquisite culinary creations and a wide array of fine spirits at the best bar in Etawah.</p>
             <div class="grid">
                 <div class="card">
                     <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?q=80&w=2070" alt="Restaurant Dining Area" class="card-image">
@@ -468,6 +599,19 @@
                 </div>
             </div>
         </section>
+        
+        <section class="container fade-in" id="gallery">
+            <h2 class="section-heading">Our Gallery</h2>
+            <p class="section-subheading">A glimpse into the world of Strand Rayan. Explore our elegant interiors, sophisticated dining, and welcoming ambiance.</p>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1542314831-068cd1dbb5eb?q=80&w=2070" alt="Hotel Exterior"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?q=80&w=1932" alt="Hotel Poolside"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?q=80&w=1949" alt="Hotel Lobby"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?q=80&w=2070" alt="Hotel Aerial View"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=2070" alt="Fine Dining Plate"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1535850579364-952ef606b51e?q=80&w=1934" alt="Cocktail at the Bar"></div>
+            </div>
+        </section>
 
         <section class="container fade-in" id="payment">
             <h2 class="section-heading">Easy Booking & Payment</h2>
@@ -486,7 +630,6 @@
                 </div>
             </div>
         </section>
-
     </main>
     
     <a href="https://wa.me/918279608163?text=Hello%2C%20I%20am%20interested%20in%20a%20booking%20at%20Strand%20Rayan." class="whatsapp-float" target="_blank">
@@ -527,8 +670,8 @@
         const faders = document.querySelectorAll('.fade-in');
         
         const appearOptions = {
-            threshold: 0.2, // item appears when 20% visible
-            rootMargin: "0px 0px -50px 0px" // trigger a bit earlier
+            threshold: 0.2, 
+            rootMargin: "0px 0px -50px 0px" 
         };
 
         const appearOnScroll = new IntersectionObserver(function(entries, observer) {
@@ -543,6 +686,40 @@
 
         faders.forEach(fader => {
             appearOnScroll.observe(fader);
+        });
+        
+        // 3. Image Slider Functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            const sliders = document.querySelectorAll('.slider');
+
+            sliders.forEach(slider => {
+                const track = slider.querySelector('.slider-track');
+                const slides = Array.from(track.children);
+                const nextButton = slider.querySelector('.next');
+                const prevButton = slider.querySelector('.prev');
+                
+                let currentIndex = 0;
+
+                const updateSlidePosition = () => {
+                     track.style.transform = `translateX(-${currentIndex * 100}%)`;
+                }
+
+                nextButton.addEventListener('click', e => {
+                    currentIndex++;
+                    if (currentIndex >= slides.length) {
+                        currentIndex = 0; 
+                    }
+                    updateSlidePosition();
+                });
+
+                prevButton.addEventListener('click', e => {
+                    currentIndex--;
+                    if (currentIndex < 0) {
+                        currentIndex = slides.length - 1; 
+                    }
+                    updateSlidePosition();
+                });
+            });
         });
 
     </script>
